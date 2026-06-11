@@ -110,20 +110,29 @@
   }
 
   /* MODE SCREEN */
-  #screen-mode {
-    display: none;
-    flex-direction: column;
-    min-height: calc(100vh - 32px);
-  }
-  #screen-mode.active { display: flex; }
   .mode-header {
     margin-bottom: 24px;
+  }
+  .mode-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
   }
   .mode-header h2 {
     font-size: 20px;
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
+  .mode-help-link {
+    flex-shrink: 0;
+    line-height: 0;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+  .mode-help-link:hover { opacity: 1; }
+  .mode-help-link img { width: 28px; height: 28px; display: block; }
   .mode-header p { font-size: 14px; color: var(--text2); }
   .mode-cards { display: flex; flex-direction: column; gap: 12px; }
   .mode-card {
@@ -163,22 +172,6 @@
     transition: border-color 0.15s;
   }
   .change-file-btn:hover { border-color: var(--border2); }
-  .mode-help {
-    margin-top: auto;
-    padding-top: 32px;
-    text-align: center;
-  }
-  .mode-help a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text2);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.15s;
-  }
-  .mode-help a:hover { color: var(--text); }
-  .mode-help img { width: 28px; height: 28px; display: block; }
 
   /* QUIZ SCREEN */
   .quiz-topbar {
@@ -347,7 +340,12 @@
 <!-- SCREEN 2: Mode select -->
 <div id="screen-mode" class="screen">
   <div class="mode-header">
-    <h2>Rejimni tanlang</h2>
+    <div class="mode-header-top">
+      <h2>Rejimni tanlang</h2>
+      <a class="mode-help-link" href="https://t.me/Bobur_urolog" target="_blank" rel="noopener noreferrer">
+        <img src="telegram.svg" alt="Telegram">
+      </a>
+    </div>
     <p id="file-info"></p>
   </div>
   <div class="mode-cards">
@@ -361,11 +359,6 @@
       <h3>📝 Imtihon</h3>
       <p>50 ta tasodifiy savol. Vaqt — 50 daqiqa. Javoblar faqat oxirida ko'rsatiladi.</p>
     </div>
-  </div>
-  <div class="mode-help">
-    <a href="https://t.me/Bobur_urolog" target="_blank" rel="noopener noreferrer">
-      Yordam: <img src="telegram.svg" alt="Telegram">
-    </a>
   </div>
 </div>
 
